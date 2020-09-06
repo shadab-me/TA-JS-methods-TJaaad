@@ -95,7 +95,7 @@ console.log(to.replace('Stark', 'Lannister'));
 /*
 20. Make the quote of length 30 and put ... at the end. (use slice)
 */
-
+console.log(quote.slice(0, 30))
 /*
 21. Find out does quote, quoteFrom, quoteTo starts with "A"
 */
