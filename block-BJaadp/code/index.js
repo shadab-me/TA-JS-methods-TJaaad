@@ -14,20 +14,32 @@ let persons = [
 ];
 
 // NOTE: You can only use reduce method to solve this exercise:
-
 // Find the average grade
+console.log(persons.reduce((acc, item) => acc + item.grade, 0) / persons.length);
 
 // Find the average grade of male
+let MaleGrade = persons.filter(item => item.sex == 'M' && item.grade);
 
+let AvM = MaleGrade.reduce((acc, item) => acc + item.grade, 0)/MaleGrade.length;
+console.log(AvM);
 // Find the average grade of female
-
+let FemaleGrade = persons.filter(item => item.sex == 'F' && item.grade)
+ let AvF = FemaleGrade.reduce((acc, item) => acc + item.grade, 0) / FemaleGrade.length;
+console.log(AvF);
 // Find the highest grade
 
 // Find the highest grade in male
-
+let HighestMaleGrade = Math.max(...MaleGrade);
 // Find the highest grade in female
-
+let HighestFemaleGrade = Math.max(...FemaleGrade);
 // Find the highest grade for people whose name starts with 'J' or 'P'
+let startJP = persons.filter((item) => 
+{
+if(item.name.startsWith('J') || item.name.startsWith('P')){
+  return item.grade
+}}
+  );
+console.log(startJP);
 
 const fruitBasket = [
   'banana',
@@ -43,6 +55,7 @@ const fruitBasket = [
   'fig',
 ];
 
+
 /* 
 
 Use the fruitBasket array to create an object where key will be the fruit and value will be the number of times
@@ -52,6 +65,15 @@ Output:
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
 
+let ob = {};
+for(let item of fruitBasket){
+  if(!ob[item]){
+    ob[item] = 1;
+  }else{
+    ob[item]++
+  }
+}
+console.log(ob)
 /* 
 
 Use the fruitBasket array to create an array of array. Each array will contain two values name of fruit and number of times
@@ -70,6 +92,9 @@ const data = [
 ];
 
 // Using reduce flat data array
+data.reduce((acc, item) => {
+  return acc.concat(item)
+}, [])
 
 const dataTwo = [
   [1, 2, 3],
@@ -78,10 +103,12 @@ const dataTwo = [
   [[10, 11], 12],
 ];
 
+dataTwo.reduce((acc, item) => {
+  return acc.concat(item)
+}, []);
 // Using reduce flat dataTwo array
 
 /*
-
 Create these functions which accepts a number value and returns a number value:
   - `increment` adds one to the input value
   - `double` doubles the input value
