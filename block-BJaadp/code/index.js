@@ -120,6 +120,22 @@ Create these functions which accepts a number value and returns a number value:
 
 */
 
+function increment(n){
+  return n++
+}
+function double(n){
+  return n * 2;
+}
+function decrement(n){
+  return n--
+}
+function triple(n){
+  return n * 3
+}
+function half(n){
+  return n / 2
+}
+
 let pipeline = [
   increment,
   double,
@@ -144,6 +160,7 @@ EXAMPLE:
 
   ...
 */
+pipeline.reduce((acc, item) => item(acc), 3);
 
 let pipeline2 = [
   increment,
@@ -160,3 +177,4 @@ let pipeline2 = [
 ];
 
 // Find the output using pipeline2 the initial value if 8
+pipeline2.reduce((acc, item) => item(acc), 8);
