@@ -2,34 +2,65 @@
 
 function countAllPeople() {
   // your code goes here
+  let count = 0;
+  got.houses.forEach((item) => {
+    count += item.people.length;
+  });
+  return count;
 }
 
 function peopleByHouses() {
   // your code goes here
+   let peopleOb = {};
+   got.houses.forEach((item) => {
+
+     peopleOb[item] = item.people.length;
+   })
+ return peopleOb;
 }
 
 function everyone() {
   // your code goes here
+  let EveryPeople = [];
+  got.houses.forEach((item) => {
+    item.people.forEach((el) => EveryPeople.push(el.name))
+  })
+return EveryPeople
 }
 
 function nameWithS() {
   // your code goes here
+  return everyone().filter((item) => item.includes('S'));
 }
 
 function nameWithA() {
   // your code goes here
+  return everyone().filter((item) => item.includes('A'));
+
 }
 
 function surnameWithS() {
   // your code goes here
+  return everyone().filter((item) => item.split(" ")[0].startsWith('S'));
+
 }
 
 function surnameWithA() {
   // your code goes here
+  return everyone().filter((item) => item.split(" ")[0].startsWith('A'));
+
 }
 
 function peopleNameOfAllHouses() {
   // your code goes here
+let peopleOB = {};
+got.houses.forEach((item) => {
+  peopleOB[item] = [];
+  item.people.forEach((item) => {
+    peopleOB[item].push(item.name);
+  })
+});
+return peopleOB;
 }
 
 // Testing your result after writing your function
