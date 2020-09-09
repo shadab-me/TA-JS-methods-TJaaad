@@ -1,22 +1,16 @@
 // NOTE: You can only use the (reduce) array method to solve this exercise:
 
 function countAllPeople() {
-  // your code goes here
-  let count = 0;
-  got.houses.forEach((item) => {
-    count += item.people.length;
-  });
-  return count;
+return  got.houses.reduce((a, c) => (a += c.people.length), 0) 
+
 }
 
 function peopleByHouses() {
   // your code goes here
-   let peopleOb = {};
-   got.houses.forEach((item) => {
-
-     peopleOb[item] = item.people.length;
-   })
- return peopleOb;
+     return got.houses.reduce((a, c) => {
+       a[c.name] = c.people.length;
+       return a;
+     }, {});
 }
 
 function everyone() {
@@ -24,7 +18,7 @@ function everyone() {
   let EveryPeople = [];
   got.houses.forEach((item) => {
     item.people.forEach((el) => EveryPeople.push(el.name))
-  })
+  });
 return EveryPeople
 }
 
